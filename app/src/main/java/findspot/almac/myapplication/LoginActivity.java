@@ -3,6 +3,7 @@ package findspot.almac.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +50,9 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             // A la pagina principal
+                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(i);
+                            finish();
                         }
                     });
 

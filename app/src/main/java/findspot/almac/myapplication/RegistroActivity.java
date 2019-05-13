@@ -1,5 +1,6 @@
 package findspot.almac.myapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -61,7 +62,7 @@ public class RegistroActivity extends AppCompatActivity {
                 if (pass.length() < 6) {
                     Toast.makeText(RegistroActivity.this, "La contraseña debe de tener por lo menos 6 caracteres", Toast.LENGTH_LONG).show();
                 } else {
-                    if (pass.equals(passConfirm)) {
+                    if (pass.getText().toString().equals(passConfirm.getText().toString())) {
 
                         final String correo = et_correo.getText().toString();
                         final String contrasenha = pass.getText().toString();
@@ -76,6 +77,10 @@ public class RegistroActivity extends AppCompatActivity {
                                 Usuario usuario = new Usuario(nombre, carrera, correo, contrasenha);
 
                                 rtdb.getReference().child("usuario").child(auth.getCurrentUser().getUid()).setValue(usuario);
+
+                                Intent i = new Intent(RegistroActivity.this, MainActivity.class);
+                                startActivity(i);
+                                finish();
 
                             }
                         });
