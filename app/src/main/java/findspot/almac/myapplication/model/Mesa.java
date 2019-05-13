@@ -29,4 +29,15 @@ public class Mesa implements Serializable {
     public void setOcupada(boolean ocupada) {
         this.ocupada = ocupada;
     }
+
+    public void cambiarValores () {
+
+        if (ocupada) {
+            ocupada = false;
+        } else {
+            ocupada = true;
+        }
+
+    }
+
 }

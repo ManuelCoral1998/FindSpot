@@ -20,6 +20,18 @@ public class Edificio implements Serializable{
         this.pisos = pisos;
     }
 
+    public void cambiarDatos (int posPiso, int posMesa) {
+
+        if (pisos.get(posPiso).getMesas().get(posMesa).isOcupada()) {
+            cantidadMesasDisponibles++;
+        } else {
+            cantidadMesasDisponibles--;
+        }
+
+        pisos.get(posPiso).cambiarDatos(posMesa);
+
+    }
+
     public Edificio() {}
 
     public String getNombreEdificio() {

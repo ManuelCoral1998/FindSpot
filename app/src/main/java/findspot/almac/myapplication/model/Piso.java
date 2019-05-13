@@ -16,6 +16,17 @@ public class Piso implements Serializable {
         this.mesasDisponibles = mesasDisponibles;
     }
 
+    public void cambiarDatos(int posMesa) {
+
+        if (mesas.get(posMesa).isOcupada()) {
+            mesasDisponibles++;
+        } else {
+            mesasDisponibles--;
+        }
+
+        mesas.get(posMesa).cambiarValores();
+    }
+
     public  Piso(){}
 
     public String getNombrePiso() {

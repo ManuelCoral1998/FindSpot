@@ -25,7 +25,7 @@ import findspot.almac.myapplication.model.Piso;
 
 public class ListaEdificios extends AppCompatActivity {
 
-    public static final String[] NOMBRES_EDIFICIOS = {"A"};
+    public static final String[] NOMBRES_EDIFICIOS = {"A", "E"};
     private ListView listaEdificos;
     private Adapter adapter;
 
