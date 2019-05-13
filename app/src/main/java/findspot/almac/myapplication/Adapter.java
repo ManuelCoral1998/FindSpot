@@ -49,7 +49,7 @@ public class Adapter extends BaseAdapter {
 
         logo.setImageResource(R.drawable.edificios_3d);
         nombre_piso.setText("Edificio "+ edificio.getNombreEdificio());
-        mesasDisponibles.setText("Mesas Disponibles: " +edificio.getcantidadMesasDisponibles());
+        mesasDisponibles.setText("Mesas Disponibles: " +edificio.getCantidadMesasDisponibles());
         mesasTotales.setText("Mesas Totales: "+edificio.getCantidadMesas());
 
         return convertView;

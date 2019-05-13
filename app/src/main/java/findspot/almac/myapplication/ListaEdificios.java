@@ -1,5 +1,6 @@
 package findspot.almac.myapplication;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,10 +20,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import findspot.almac.myapplication.model.Edificio;
+import findspot.almac.myapplication.model.Mesa;
+import findspot.almac.myapplication.model.Piso;
 
 public class ListaEdificios extends AppCompatActivity {
 
-    public static final String[] NOMBRES_EDIFICIOS = {"A", "E", "L"};
+    public static final String[] NOMBRES_EDIFICIOS = {"A"};
     private ListView listaEdificos;
     private Adapter adapter;
 
@@ -35,8 +38,23 @@ public class ListaEdificios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_edificios);
 
+       /* Mesa mesa = new Mesa("A-P1-M1", false);
+
+        ArrayList<Mesa> mesas = new ArrayList<>();
+        mesas.add(mesa);
+
+        Piso piso = new Piso("1", mesas, 1);
+
+        ArrayList<Piso> pisos = new ArrayList<>();
+        pisos.add(piso);
+
+        Edificio edificio = new Edificio("A", 1, 1, 1, pisos);*/
+
         auth = FirebaseAuth.getInstance();
         rtdb = FirebaseDatabase.getInstance();
+
+       // rtdb.getReference().child("edificios").child("A").setValue(edificio);
+
 
         listaEdificos = findViewById(R.id.list_view_edificios);
 
@@ -48,6 +66,10 @@ public class ListaEdificios extends AppCompatActivity {
 
                 Edificio aBuscar = (Edificio) parent.getItemAtPosition(position);
                 Toast.makeText(ListaEdificios.this, aBuscar.getNombreEdificio(), Toast.LENGTH_LONG).show();
+
+                Intent i = new Intent(ListaEdificios.this, ListaMesas.class);
+                i.putExtra("Edificio", aBuscar);
+                startActivity(i);
 
             }
         });

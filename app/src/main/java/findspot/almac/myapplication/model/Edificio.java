@@ -1,18 +1,23 @@
 package findspot.almac.myapplication.model;
 
-public class Edificio {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Edificio implements Serializable{
 
     private String nombreEdificio;
     private int cantidadMesas;
     private int cantidadMesasDisponibles;
     private int cantidadPisos;
+    private ArrayList<Piso> pisos;
 
-
-    public Edificio(String nombreEdifico, int cantidadMesas, int logoEdifico, int cantidadPisos) {
+    public Edificio(String nombreEdifico, int cantidadMesas, int cantidadMesasDisponibles, int cantidadPisos, ArrayList<Piso> pisos) {
         this.nombreEdificio = nombreEdifico;
         this.cantidadMesas = cantidadMesas;
-        this.cantidadMesasDisponibles = logoEdifico;
+        this.cantidadMesasDisponibles = cantidadMesasDisponibles;
         this.cantidadPisos = cantidadPisos;
+        this.pisos = pisos;
     }
 
     public Edificio() {}
@@ -47,5 +52,13 @@ public class Edificio {
 
     public void setCantidadPisos(int cantidadPisos) {
         this.cantidadPisos = cantidadPisos;
+    }
+
+    public ArrayList<Piso> getPisos() {
+        return pisos;
+    }
+
+    public void setPisos(ArrayList<Piso> pisos) {
+        this.pisos = pisos;
     }
 }
