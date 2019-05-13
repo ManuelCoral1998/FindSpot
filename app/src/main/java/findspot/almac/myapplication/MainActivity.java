@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         linearPlantaFisica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "HOLA", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(MainActivity.this, ListaEdificios.class);
+                startActivity(i);
             }
         });
 
